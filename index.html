@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="uz" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namoz Vaqtlari Namangan</title>
+    <meta name="description" content="Namangan viloyati uchun aniq namoz vaqtlari. 10,000+ obunachi. islom.uz rasmiy ma'lumotlariga asoslangan.">
+    <meta name="keywords" content="namoz vaqtlari, namangan, prayer times, namangan viloyati, islom, telegram kanal">
+    <meta property="og:title" content="Namoz Vaqtlari Namangan">
+    <meta property="og:description" content="Namangan viloyati uchun aniq namoz vaqtlari. 10,000+ obunachi ishonadi.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C8A45C;
+            --gold-light: #E8D5A3;
+            --gold-dark: #9E7B3B;
+            --teal: #1A6B5A;
+            --teal-deep: #0E4D3F;
+            --teal-light: #2A8B74;
+            --cream: #FDF8EF;
+            --cream-dark: #F0E6D3;
+            --dark: #1A1A1A;
+            --dark-soft: #2D2D2D;
+            --text: #3A3A3A;
+            --text-light: #6B6B6B;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ===== GEOMETRIC PATTERN BACKGROUND ===== */
+        .geo-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                repeating-conic-gradient(var(--teal) 0% 25%, transparent 0% 50%) 
+                0 0 / 60px 60px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(253, 248, 239, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 30px rgba(0,0,0,0.06);
+            padding: 0.7rem 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--teal-deep);
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            box-shadow: 0 2px 10px rgba(26, 107, 90, 0.3);
+        }
+
+        .nav-logo-text {
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            color: var(--white) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(26, 107, 90, 0.4);
+            color: var(--white) !important;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(26,107,90,0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-bg-2 {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,164,92,0.08) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(26,107,90,0.1), rgba(200,164,92,0.1));
+            border: 1px solid rgba(200,164,92,0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--teal);
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal-light);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            color: var(--gold-dark);
+            margin-bottom: 1.5rem;
+            direction: rtl;
+            line-height: 2;
+            animation: fadeInDown 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--teal), var(--teal-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            animation: fadeInDown 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInDown 0.8s ease-out 0.4s backwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.2rem;
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 25px rgba(26, 107, 90, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(26, 107, 90, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.2rem;
+            background: var(--white);
+            color: var(--teal);
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            border: 1.5px solid rgba(26,107,90,0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-color: var(--teal);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            animation: fadeInDown 0.8s ease-out 0.5s backwards;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            position: relative;
+            z-index: 2;
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon.teal {
+            background: linear-gradient(135deg, rgba(26,107,90,0.1), rgba(26,107,90,0.05));
+            color: var(--teal);
+        }
+
+        .feature-icon.gold {
+            background: linear-gradient(135deg, rgba(200,164,92,0.15), rgba(200,164,92,0.05));
+            color: var(--gold-dark);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* ===== PRAYER TIME PREVIEW ===== */
+        .prayer-section {
+            position: relative;
+            z-index: 2;
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--cream) 0%, rgba(26,107,90,0.03) 50%, var(--cream) 100%);
+        }
+
+        .prayer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .prayer-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .prayer-card-header {
+            background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prayer-card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .prayer-card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -60%;
+            left: -10%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(200,164,92,0.1);
+        }
+
+        .prayer-card-header h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prayer-card-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prayer-times-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+        }
+
+        .prayer-time-item {
+            padding: 2rem 1rem;
+            text-align: center;
+            border-right: 1px solid rgba(0,0,0,0.04);
+            transition: background 0.3s;
+        }
+
+        .prayer-time-item:last-child {
+            border-right: none;
+        }
+
+        .prayer-time-item:hover {
+            background: rgba(26,107,90,0.02);
+        }
+
+        .prayer-time-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .prayer-time-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prayer-time-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .prayer-card-footer {
+            padding: 1.2rem 2.5rem;
+            background: rgba(26,107,90,0.02);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .prayer-card-footer a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* ===== ABOUT / TRUST SECTION ===== */
+        .about {
+            position: relative;
+            z-index: 2;
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-source {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border-radius: 14px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .about-source-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .about-source-text strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .about-source-text span {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .about-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-stat-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s;
+        }
+
+        .about-stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+        }
+
+        .about-stat-card:nth-child(2) {
+            transform: translateY(1.5rem);
+        }
+
+        .about-stat-card:nth-child(4) {
+            transform: translateY(1.5rem);
+        }
+
+        .about-stat-card:nth-child(2):hover {
+            transform: translateY(calc(1.5rem - 3px));
+        }
+
+        .about-stat-card:nth-child(4):hover {
+            transform: translateY(calc(1.5rem - 3px));
+        }
+
+        .about-stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: -0.02em;
+        }
+
+        .about-stat-number.gold {
+            color: var(--gold-dark);
+        }
+
+        .about-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.4rem;
+        }
+
+        /* ===== HADITH SECTION ===== */
+        .hadith-section {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+            overflow: hidden;
+        }
+
+        .hadith-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(200,164,92,0.08);
+        }
+
+        .hadith-container {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hadith-ornament {
+            color: var(--gold-light);
+            font-size: 2.5rem;
+            font-family: 'Amiri', serif;
+            margin-bottom: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .hadith-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .hadith-source {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            position: relative;
+            z-index: 2;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .cta-container p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #2AABEE, #229ED9);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 30px rgba(42,171,238,0.35);
+        }
+
+        .cta-telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(42,171,238,0.45);
+        }
+
+        .cta-telegram-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cta-sub-note {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding: 3rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-brand-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-deep));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--gold-light);
+        }
+
+        .footer-brand-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-visual {
+                order: -1;
+            }
+
+            .prayer-times-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(253,248,239,0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .mobile-toggle {
+                display: block;
+                z-index: 200;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .prayer-times-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .prayer-time-item:nth-child(4),
+            .prayer-time-item:nth-child(5) {
+                border-top: 1px solid rgba(0,0,0,0.04);
+            }
+
+            .about-visual {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 7rem 1.2rem 3rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stat-divider {
+                display: none;
+            }
+
+            .prayer-times-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .prayer-time-item {
+                border-bottom: 1px solid rgba(0,0,0,0.04);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Geometric background pattern -->
+    <div class="geo-pattern"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">☪</div>
+            <span class="nav-logo-text">Namoz Vaqtlari NM</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features">Xususiyatlar</a></li>
+            <li><a href="#about">Biz Haqimizda</a></li>
+            <li><a href="https://t.me/namozvaqtlarinm" target="_blank" class="nav-cta">Obuna Bo'lish</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-bg-2"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Har kuni yangilanadi
+            </div>
+            <div class="hero-arabic">
+                بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+            </div>
+            <h1>
+                Namangan uchun<br>
+                <span class="highlight">aniq namoz vaqtlari</span>
+            </h1>
+            <p class="hero-desc">
+                islom.uz rasmiy ma'lumotlariga asoslangan Namangan viloyati uchun eng ishonchli namoz vaqtlari kanali. Kundalik eslatmalar, foydali ma'lumotlar.
+            </p>
+            <div class="hero-actions">
+                <a href="https://t.me/namozvaqtlarinm" target="_blank" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.94 8.13l-1.97 9.28c-.15.67-.54.83-1.09.52l-3.02-2.22-1.46 1.4c-.16.16-.3.3-.61.3l.22-3.06 5.58-5.04c.24-.22-.05-.34-.38-.13l-6.9 4.34-2.97-.93c-.65-.2-.66-.65.13-.96l11.6-4.47c.54-.2 1.01.13.83.96z"/></svg>
+                    Telegramda Obuna Bo'lish
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number" id="counterSubscribers">10,000+</div>
+                    <div class="stat-label">Obunachi</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-number">2019</div>
+                    <div class="stat-label">dan beri faol</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-number">~7</div>
+                    <div class="stat-label">Haftalik post</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header reveal">
+            <div class="section-tag">Nima Uchun Biz?</div>
+            <h2 class="section-title">Namangan ahlining ishonchli manbayi</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon teal">🕌</div>
+                <h3>Rasmiy Ma'lumotlar</h3>
+                <p>Barcha namoz vaqtlari islom.uz rasmiy veb-saytidan olinadi. Aniqlik va ishonchlilik kafolatlangan.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon gold">⏰</div>
+                <h3>Kundalik Eslatmalar</h3>
+                <p>Har bir namoz vaqti kelganda eslatma olasiz. Hech qachon namozni o'tkazib yubormaysiz.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon teal">📍</div>
+                <h3>Namangan Vaqti Bilan</h3>
+                <p>Aniq Namangan viloyati mahalliy vaqtiga moslashtirilgan. Toshkent emas, aynan Namangan vaqti.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon gold">📖</div>
+                <h3>Foydali Hadislar</h3>
+                <p>Namoz vaqtlari bilan birga foydali hadislar va islomiy bilimlar ulashiladi.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon teal">🔔</div>
+                <h3>Bepul va Reklamsiz</h3>
+                <p>Kanal to'liq bepul. Hech qanday reklama qabul qilinmaydi. Faqat foydali kontent.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon gold">👥</div>
+                <h3>10,000+ Jamoa</h3>
+                <p>Namangan viloyatidan 10 mingdan ortiq odam bizga ishonadi. Ularga qo'shiling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hadith Section -->
+    <section class="hadith-section">
+        <div class="hadith-container reveal">
+            <div class="hadith-ornament">﷽</div>
+            <p class="hadith-text">
+                «Qorong'u kechalarda masjidga borgan kishilarga, Qiyomat kuni bir nurga mazhar bo'lishlari xushxabarini yetkazing»
+            </p>
+            <span class="hadith-source">— Hadis</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-grid">
+            <div class="about-content reveal">
+                <h2>2019-yildan beri Namangan ahliga xizmatda</h2>
+                <p>
+                    «Namoz Vaqtlari Namangan v.b.» kanali Namangan viloyati aholisiga aniq va ishonchli namoz vaqtlarini yetkazib berish maqsadida tashkil etilgan. Barcha ma'lumotlar O'zbekiston Musulmonlari Idorasi va islom.uz rasmiy ma'lumotlariga asoslangan.
+                </p>
+                <p>
+                    Kanal to'liq bepul va reklamsiz. Bizning yagona maqsadimiz — Namangan ahlining ibodatlarini osonlashtirish va namoz vaqtlarini o'z vaqtida yetkazish.
+                </p>
+                <div class="about-source">
+                    <div class="about-source-icon">✓</div>
+                    <div class="about-source-text">
+                        <strong>Rasmiy manba: islom.uz</strong>
+                        <span>O'zbekiston Musulmonlari Idorasi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual reveal">
+                <div class="about-stat-card">
+                    <div class="about-stat-number">10K+</div>
+                    <div class="about-stat-label">Obunachi</div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="about-stat-number gold">65.9%</div>
+                    <div class="about-stat-label">ERR darajasi</div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="about-stat-number">522</div>
+                    <div class="about-stat-label">O'rtacha ko'rish</div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="about-stat-number gold">6+</div>
+                    <div class="about-stat-label">Yil tajriba</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container reveal">
+            <h2>Namoz vaqtlarini<br>o'tkazib yubormang</h2>
+            <p>Hoziroq kanalga qo'shiling va Namangan uchun aniq namoz vaqtlarini har kuni oling.</p>
+            <a href="https://t.me/namozvaqtlarinm" target="_blank" class="cta-telegram-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.94 8.13l-1.97 9.28c-.15.67-.54.83-1.09.52l-3.02-2.22-1.46 1.4c-.16.16-.3.3-.61.3l.22-3.06 5.58-5.04c.24-.22-.05-.34-.38-.13l-6.9 4.34-2.97-.93c-.65-.2-.66-.65.13-.96l11.6-4.47c.54-.2 1.01.13.83.96z"/></svg>
+                @NamozVaqtlariNM
+            </a>
+            <p class="cta-sub-note">Bepul · Reklamsiz · Har kuni yangilanadi</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-brand-icon">☪</div>
+                <span class="footer-brand-text">Namoz Vaqtlari Namangan</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="https://t.me/namozvaqtlarinm" target="_blank">Telegram</a></li>
+                <li><a href="https://t.me/NVNM_adminbot" target="_blank">Admin</a></li>
+                <li><a href="https://islom.uz" target="_blank">islom.uz</a></li>
+            </ul>
+            <span class="footer-copy">© 2019–2026 Namoz Vaqtlari Namangan v.b.</span>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll-based navigation style
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Scroll reveal animations
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, i * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
